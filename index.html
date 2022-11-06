@@ -20,12 +20,18 @@
 				<li class="nav-item active"> <!-- Here change from "active" to "" in renders, indicates if the page is the current one or not-->
 					<a class="nav-link" href="#">Catalogue</a>
 				</li>
-				<!--
+				{% if session.authenticated %}
 				<li class="nav-item"> Same active or not here 
 					<a class="nav-link" href="#">Favorites</a>
 				</li>
-				Display if the user has logged in-->
+				{% endif %}
 			</ul>
+			{% if session.authenticated %}
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#">Logout</a>
+				</li>
+			{% else %}
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 					<a class="nav-link" href="#">Login</a>
@@ -33,15 +39,12 @@
 				<li class="nav-item">
 					<a class="nav-link" href="#">Register</a>
 				</li>
-				<!-- 
-				<li class="nav-item">
-					<a class="nav-link" href="#">Logout</a>
-				</li> 
-				Change to this if the user has logged in-->
+			{% endif %}
 			</ul>
 		</div>
 	</nav>
-    
+    {% block content %}
+    {% endblock %}
 	
 	
 </body>

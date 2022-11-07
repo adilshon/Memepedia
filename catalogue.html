@@ -4,7 +4,7 @@
 <div class="container mt-5">
 	<div class="row">
 		<div class="col-sm-4">
-			<h3 class="mt-4">Some Links</h3>
+			<h3 class="mt-1">Some Links</h3>
 		  	<p>Lorem ipsum dolor sit ame.</p>
 		  	<ul class="nav nav-pills flex-column">
 				<li class="nav-item">
@@ -29,22 +29,71 @@
 				<div class="fakeimg">Fake Image</div>
 				<p>Some text..</p>
 				<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-				<button class="fav-button" type="submit"></button>
 			</div>
+
 			<div class = "bg-light">
 				<h2 class="mt-5">TITLE HEADING</h2>
+				<label for="id-of-input" class="custom-checkbox">
+					<input type="checkbox" id="id-of-input"/>
+					<i class="glyphicon glyphicon-star-empty"></i>
+					<i class="glyphicon glyphicon-star"></i>
+				</label>
 				<h5>Title description, Sep 2, 2020</h5>
 				<div class="fakeimg">Fake Image</div>
 				<p>Some text..</p>
 				<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
 			</div>
+
 			<div class = "bg-light">
 				<h2 class="mt-5">TITLE HEADING</h2>
 				<h5>Title description, Sep 2, 2020</h5>
-				<div class="fakeimg">Fake Image</div>
+				<div id="player"></div>
+
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '360',
+          width: '640',
+          videoId: 'M7lc1UVf-VE',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    </script>
 				<p>Some text..</p>
 				<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-			</div>
+		</div>
 	</div>
 </div>
 

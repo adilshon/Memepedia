@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memepedia</title>
-    <link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="static/style.css">
+	<script src="script.js" defer></script>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">  <!-- Navbar starts here -->
@@ -18,18 +18,18 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav"> 
 				<li class="nav-item active"> <!-- Here change from "active" to "" in renders, indicates if the page is the current one or not-->
-					<a class="nav-link" href="#">Catalogue</a>
+					<a class="nav-link" href="{{ url_for('catalogue')}}">Catalogue</a><!-- Change links -->
 				</li>
 				{% if session.authenticated %}
-				<li class="nav-item"> Same active or not here 
-					<a class="nav-link" href="#">Favorites</a>
+				<li class="nav-item">
+					<a class="nav-link" href="{{ url_for('favorites')}}">Favorites</a>
 				</li>
 				{% endif %}
 			</ul>
 			{% if session.authenticated %}
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="#">Logout</a>
+					<a class="nav-link" href="{{ url_for('profile')}}">Profile</a>
 				</li>
 			{% else %}
 			<ul class="navbar-nav ml-auto">
@@ -45,7 +45,9 @@
 	</nav>
     {% block content %}
     {% endblock %}
-	
+	<div class="mt-5 p-4 bg-dark text-white text-center">
+  		<p>Adil, Nurs, Ansar — ANA NAHUY</p>
+	</div>
 	
 </body>
 </html>

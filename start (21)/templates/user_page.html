@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{%block title%}
+UserPage
+{% endblock %}
+
+{%block content%}
+
+
+{% for key, value in context.items() %}
+
+<h1>{{ key }}: {{ value }}</h1>
+
+{% endfor %}
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>
+<br>
+{% endblock %}

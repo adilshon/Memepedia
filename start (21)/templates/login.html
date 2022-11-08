@@ -1,0 +1,31 @@
+{% extends "base.html" %} 
+
+{% block title %}
+Login
+{% endblock %} 
+
+{% block content %}
+<br>
+<br>
+<br>
+<main id="main">
+  <section class="inner-page">
+    <div class="container d-flex align-items-center justify-content-center form-group">
+    
+      {% if context %}
+        <p>{{context}}</p>
+      {% endif %}
+      
+      <form action="{{ url_for('login')}}" method="POST" enctype="multipart/form-data">
+        <br>  <h1 align="center">Login</h1><br>
+        <input type="text" name="username"  class="form-control" placeholder="Username" required>
+        <input type="password" name="password"  class="form-control" placeholder="Password" required>
+        <input type="submit" class="form-control btn btn-primary submit px-10" value="Login">
+      </form>
+    </div>
+  </section>
+<br><br><br><br><br>
+</main>
+
+
+{% endblock %}

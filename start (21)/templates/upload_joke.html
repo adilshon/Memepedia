@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+Joke
+{% endblock %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <h1 align="center">Upload your joke</h1>
+    <br>
+    <br>
+    <form method="post">
+        <input type="text" class="form-control" name="title" id="title" placeholder="Joke title"><br>
+        <input type="text" class="form-control" name="author" id="author" placeholder="Author"><br>
+        <input type="text" class="form-control" name="joke" id="joke" placeholder="Joke"><br>
+        <input type="text" class="form-control" name="img_url" id="img_url" placeholder="img_url"><br>  
+        <button class="form-control btn btn-primary submit px-10" class="btn btn-success" type="submit">Upload</button>
+    </form>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}

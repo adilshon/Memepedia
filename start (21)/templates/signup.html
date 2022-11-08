@@ -1,0 +1,44 @@
+{% extends "base.html" %} 
+
+{% block title %}
+Sign Up
+{% endblock %} 
+
+
+{% block content %}
+<br>
+<br>
+<br>
+<main id="main">
+    <br>
+    <br>
+    <h3 color="white" align="center" class="heading-section"><b>Sign-Up</b></h3>
+    <form action="{{ url_for('register')}}" method="POST" enctype="multipart/form-data">
+        <table class="center">
+            <tr>
+                <td ><input  type="text"  name="username" class="form-control"  placeholder="Username" required> </td>
+            </tr>
+            <tr>
+                <td><input type="text" name="fname" class="form-control" placeholder="First Name" required></td>
+            </tr>
+            <tr>
+                <td> <input type="text" name="sname" class="form-control" placeholder="Second Name" required></td>
+            </tr>
+            <tr>
+                <td> <input type="password" name="password" class="form-control"  placeholder="Password" required></td>
+            </tr>
+            <tr>
+                <td><input type="password" name="password_conf" class="form-control" placeholder="Password Confirmation" required></td>
+            </tr>
+            <tr>
+                <td> <input type="submit" class="form-control btn btn-primary submit px-10" value="Sign-Up"></td> <td></td>
+            </tr>
+        </table>
+    </form>
+    <a align="center" class="nav-item nav-link" id="logout" href="/login">Already have an account?</a>
+</main>
+
+<br>
+<br>
+<br>
+{% endblock %}

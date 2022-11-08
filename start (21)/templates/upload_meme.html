@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+Upload
+{% endblock %}
+
+{% block content %}
+
+<main id="main">
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <section class="inner-page">
+        <div class="container">
+          <p>
+            {% if context %}
+              <p style="color:red">{{context.Status}}<p>
+            {% endif %}
+    
+            Upload your file here:
+            <form action="{{ url_for('upload_meme')}}" method="POST" enctype="multipart/form-data">
+    
+              <input class="form-control" type="file" name="file_to_save">
+              <input class="form-control" type="submit" value="Do you want this?">
+            </form> 
+          </p>
+        </div>
+    </section>
+    <br><br><br><br><br><br> 
+</main>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+joke
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="container">
+    <div class="card-deck mb-3 text-center">
+        {% for el in data %}
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">{{ el.title }}</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="my-0 font-weight-normal">{{ el.author }}</h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>{{ el.joke }}</li>
+                </ul>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<br> <br> <br> <br> <br> <br> <br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}
